@@ -12,6 +12,13 @@ Disclaimer: please note, the suggestion that the NCC/BCA could be written so tha
     - [x] transform the National Construction Code (Australia) into a set of simple machine/human readable statements which can be easily tracked by machines in collaboration with humans.
     - [ ] work with other leigslation as code projects to agree semantics and shared ontologies.
 
+## Prototype tools
+As a demonstration for the value of a machine readable databasee of the NCC, the simplest version would be a lightweight application (mobile), which enable the NCC to be limited to specific rules to enhance ease of use for human readability. For example the following queries could be run against the database:
+
+ 1. Instead of searching through the NCC to find and read all the rules which apply to a class of building, a simple lookup tool could be provided which would show all the rules which apply to a <BuildingClass> and a specific <BuildingMaterial>, e.g. if you wanted to know all the rules which apply to a <column> and <oncreteWalls> in a <Class9b> building, then a machine readable version of the NCC would enable this feature.  This would make it easier for architects and building surveyors to check the legistative rules against each member/feature of the building.
+ 
+ 2. Taking this example a step further...
+
 ### Reading references
   * https://theconversation.com/csiro-wants-our-laws-turned-into-computer-code-heres-why-thats-a-bad-idea-130131
   * https://en.wikipedia.org/wiki/Machine-readable_data
