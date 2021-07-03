@@ -11,6 +11,9 @@ Disclaimer: please note, the suggestion that the NCC/BCA could be written so tha
   * Objectives:
     - [x] transform the National Construction Code (Australia) into a set of simple machine/human readable statements which can be easily tracked by machines in collaboration with humans.
     - [ ] work with other leigslation as code projects to agree semantics and shared ontologies.
+    - [ ] build a prototype database rules engine for experimentation and testing
+    - [ ] build a prototype web/mobile app for querying the NCC for building surveying checks.
+    - [ ] report on findings and future work needed.
 
 ## Prototype tools
 As a demonstration for the value of a machine readable databasee of the NCC, the simplest version would be a lightweight application (mobile), which enable the NCC to be limited to specific rules to enhance ease of use for human readability. For example the following queries could be run against the database:
