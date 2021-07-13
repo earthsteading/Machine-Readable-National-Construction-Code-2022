@@ -8,8 +8,8 @@ Disclaimer: please note, the suggestion that the NCC/BCA could be written so tha
 
   * Scope:  Supplement the ability by the humans involved in construction of buildings (building surveyors, building inspecttors, architects, builder-owners, builders, construction workers) to keep track of multiple building code regulations by enabling machines to simultanesouly track and remind humans about which building code rules need to checked and followed-up.
   * Aim: Build a federally recognised database of the National Construction Code which encodes the Building Code of Australia into simple machine readable rules which can be easily used by humans to help track compliance of their builds.
-  * Objectives:
-    - [x] transform the National Construction Code (Australia) into a set of simple machine/human readable statements which can be easily tracked by machines in collaboration with humans.
+  * Objectives (on going tasks):
+    - [x] transform the National Construction Code (Australia) into a set of simple machine/human readable statements (if-this-then-that) which can be easily actioned by machines in collaboration with humans.
     - [ ] work with other leigslation as code projects to agree semantics and shared ontologies.
     - [ ] build a prototype database rules engine for experimentation and testing
     - [ ] build a prototype web/mobile app for querying the NCC for building surveying checks.
