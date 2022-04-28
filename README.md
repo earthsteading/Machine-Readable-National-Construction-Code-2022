@@ -1,6 +1,6 @@
 # The National Construction Code (aka Building Code of Australia) as machine readable rules?
 
-This repository is an exploration of codifying the [National Construction Code of Australia](https://ncc.abcb.gov.au/) as a set of simple set of [machine readable statements](https://en.wikipedia.org/wiki/Business_rules_engine) which are both human and machine readable, e.g. by utilising the simple syntax of if-this-then-that, any rule within the NCC/BCA (National Construction Code aka Building Code of Australia) can be transformed into a simple grammatical statement which can be understood and read by both human and machine, therby making life easier for humans working with the NCC.
+This repository is an exploration of codifying the [National Construction Code of Australia](https://ncc.abcb.gov.au/) as a set of simple set of [machine readable statements](https://en.wikipedia.org/wiki/Business_rules_engine) which are both human and machine readable, e.g. by utilising the simple syntax of if-this-then-that, any rule within the NCC/BCA (National Construction Code aka Building Code of Australia) can be transformed into a simple grammatical statement which can be understood and read by both human and machine, therby making life easier for humans working with the NCC via machine assistance.
 
 ## Why build a database of the National Construction Code which can be understood by both humans and machines?
 
