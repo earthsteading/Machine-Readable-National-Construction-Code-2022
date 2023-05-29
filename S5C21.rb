@@ -1,62 +1,91 @@
-# S5C21 Type B fire-resisting construction — fire-resistance of building elements
+# S5C21 Type B fire-resisting construction — fire-resistance of building elements from National Construction Code 2022 via https://ncc.abcb.gov.au/editions/ncc-2022/adopted/volume-one/c-fire-resistance/5-fire-resisting-construction#_da7623e4-c88a-410a-a7e4-377555216c73
 
-# If a building is required to be of Type B construction
-if building_type == 'Type B'
-  # Each building element listed in Table 4, and any incorporated beam or column, must have an FRL not less than that listed in the Table for the particular Class of building concerned
-  table_4_elements.each do |element|
-    element_frl = get_frl_from_table_4(element)
-    validate_frl(element, element_frl)
-  end
+# Condition 1
+if building_type == "Type B"
+  # Each building element
+  if building_elements.include?(element)
+    required_frl = get_required_frl(element, building_class)
+    current_frl = get_current_frl(element)
 
-  # [No specific information provided] blank clause in NCC (b) 
-  
-  # If a stair shaft supports any floor or a structural part of it
-  if stair_shaft_supports_floor
-    # The floor or part must have an FRL of 60/–/– or more
-    validate_frl_of_floor(frl_threshold: '60/–/–')
-  else
-    # The junction of the stair shaft must be constructed so that the floor or part will be free to sag or fall in a fire without causing structural damage to the shaft
-    construct_junction_for_sagging_floor
-  end
-  
-  # Any internal wall required to have an FRL with respect to integrity and insulation, except for a wall that bounds a sole-occupancy unit in the topmost (or only) storey and there is only one unit in that storey, must extend to:
-  if internal_wall_required
-    if floor_next_above_has_frl('30/30/30')
-      # The underside of the floor next above if that floor has an FRL of at least 30/30/30
-      extend_wall_to_floor_above
-    elsif ceiling_has_frl('60 minutes')
-      # The underside of a ceiling having a resistance to the incipient spread of fire to the space above itself of not less than 60 minutes
-      extend_wall_to_ceiling
-    elsif roof_covering_non_combustible
-      # The underside of the roof covering if it is non-combustible and, except for roof battens with dimensions of 75 mm x 50 mm or less or sarking-type material, must not be crossed by timber or other combustible building elements
-      extend_wall_to_roof_covering
-    elsif roof_covering_combustible
-      # 450 mm above the roof covering if it is combustible
-      extend_wall_above_roof_covering
-    end
-  end
-  
-  # A loadbearing internal wall and a loadbearing fire wall (including those that are part of a loadbearing shaft) must be constructed from:
-  if loadbearing_internal_wall || loadbearing_fire_wall
-    if building_condition_met
-      # Concrete
-      construct_wall_from_concrete
-    elsif masonry_condition_met
-      # Masonry
-      construct_wall_from_masonry
-    elsif fire_protected_timber_condition_met
-      # Fire-protected timber
-      construct_wall_from_fire_protected_timber
+    if current_frl < required_frl
+      # Take action if FRL is not sufficient
+      take_action()
     end
   end
 
-  # [No specific information provided]
-
-  # In a Class 5, 6, 7, 8, or 9 building, in the storey immediately below the roof, internal columns and internal walls other than fire walls and shaft walls need not comply with Table 4
-  if class_5_6_7_8_9_building && storey_immediately_below_roof
-    exclude_internal_columns_and_walls_from_compliance
+  # Stair shaft
+  if stair_shaft_supports_floor || stair_shaft_supports_structural_part
+    if floor_frl >= 60
+      # Floor or part meets FRL requirement
+    else
+      # Junction construction
+      if junction_construction_allows_sagging_or_falling
+        # Junction construction allows sagging or falling
+      else
+        # Take action if junction construction does not meet requirements
+        take_action()
+      end
+    end
   end
 
-  # [No specific information provided]
+  # Internal wall
+  if internal_wall_required && !sole_occupancy_unit_wall_in_topmost_storey
+    if floor_above_frl >= 30 || ceiling_frl >= 60 || roof_covering_non_combustible || roof_covering_450mm_above_combustible
+      # Internal wall extends as required
+    else
+      # Take action if internal wall does not extend as required
+      take_action()
+    end
+  end
 
-  # In a Class 2 or 3 building, except within sole-occupancy units, or a Class 9a health-care building or a Class 9b building, a
+  # Loadbearing walls
+  if loadbearing_internal_wall || loadbearing_fire_wall_in_loadbearing_shaft
+    if constructed_from_concrete || constructed_from_masonry || (constructed_from_fire_protected_timber && meets_additional_conditions)
+      # Loadbearing walls meet requirements
+    else
+      # Take action if loadbearing walls do not meet requirements
+      take_action()
+    end
+  end
+
+  # Class-specific exceptions
+  if class_5_6_7_8_9_building_in_storey_below_roof && !fire_walls_shaft_walls
+    # Internal columns and walls do not need to comply
+  end
+
+  if class_2_3_building_except_within_sole_occupancy_units || class_9a_healthcare_building || class_9b_building
+    if floor_separating_storeys_meets_requirement || floor_frl >= 30/30/30 || fire_protective_covering_on_underside_of_floor
+      # Floor meets requirements
+    else
+      # Take action if floor does not meet requirements
+      take_action()
+    end
+  end
+
+  if class_9c_building && above_motor_vehicle_accommodation_or_storage
+    if floor_meets_requirement || floor_frl >= 30/30/30 || fire_protective_covering_on_underside_of_floor
+      # Floor meets requirements
+    else
+      # Take action if floor does not meet requirements
+      take_action()
+    end
+  end
+end
+
+# Condition 2
+if fire_protected_timber_condition_met
+  # Fire-protected timber can be used
+end
+
+# Helper methods
+def get_required_frl(element, building_class)
+  # Retrieve required FRL from tables based on element and building class
+end
+
+def get_current_frl(element)
+  # Retrieve current FRL of element
+end
+
+def take_action
+  # Perform necessary actions
+end
