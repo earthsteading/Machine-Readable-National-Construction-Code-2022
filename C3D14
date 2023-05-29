@@ -1,0 +1,53 @@
+
+C2D14 aka C2.13 Electricity supply system
+
+Guide:
+ * If there are sub-station doorways, then they must be protected with fire doors to prevent fire spread.
+ * If additional requirements exist in State or Territory authorities for sub-station construction, then they should be followed.
+ * If there is a main switchboard, then it should be separated from the rest of the building by fire-resistant construction, with fire doors protecting door openings.
+ * If there are electrical conductors, then they must comply with relevant standards or be protected by fire-resistant construction.
+ * If emergency equipment is present, it should not rely on battery backup or alternative power sources through the main switchboard.
+ * If there is switchgear with both non-emergency and emergency equipment, then physical segregation should be provided to reduce fire damage.
+ * If there are switchboards with emergency equipment, then they must be separated from non-emergency equipment by metal partitions. 
+ * If there is a need to segregate emergency equipment, then specific equipment listed in C2.13(e) should be separated from non-emergency equipment in a switchboard.
+ 
+ # If there are sub-station doorways, then they must be protected with fire doors to prevent fire spread.
+if sub_station_doorways_exist?
+  protect_doorways_with_fire_doors
+end
+
+# If additional requirements exist in State or Territory authorities for sub-station construction, then they should be followed.
+if additional_requirements_exist?
+  follow_state_territory_authorities_requirements
+end
+
+# If there is a main switchboard, then it should be separated from the rest of the building by fire-resistant construction, with fire doors protecting door openings.
+if main_switchboard_present?
+  separate_main_switchboard_with_fire_resistant_construction
+  protect_door_openings_with_fire_doors
+end
+
+# If there are electrical conductors, then they must comply with relevant standards or be protected by fire-resistant construction.
+if electrical_conductors_present?
+  comply_with_standards_or_protect_with_fire_resistant_construction
+end
+
+# If emergency equipment is present, it should not rely on battery backup or alternative power sources through the main switchboard.
+if emergency_equipment_present?
+  ensure_emergency_equipment_independent_of_battery_backup_and_alternative_power_sources
+end
+
+# If there is switchgear with both non-emergency and emergency equipment, then physical segregation should be provided to reduce fire damage.
+if switchgear_with_both_equipment_present?
+  provide_physical_segregation_to_reduce_fire_damage
+end
+
+# If there are switchboards with emergency equipment, then they must be separated from non-emergency equipment by metal partitions.
+if switchboards_with_emergency_equipment_present?
+  separate_emergency_equipment_with_metal_partitions
+end
+
+# If there is a need to segregate emergency equipment, then specific equipment listed in C2.13(e) should be separated from non-emergency equipment in a switchboard.
+if need_to_segregate_emergency_equipment?
+  segregate_specific_equipment_in_switchboard
+end
